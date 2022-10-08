@@ -20,29 +20,53 @@
     <header>
         <div class="container">
             <nav>
-                <img src="img/logo.svg" alt="logo" class="logo">
-                <ul class="menu">
-                    <li class="menu__item">
-                        <a href="" class="menu__link menu__link_selected">Home</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">About Us</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">Our App</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="" class="menu__link">Contacts</a>
-                    </li>
-                </ul>
-                <div class="profile">
-                    <a href="" class="profile__link">Log in</a>
-                    <a href="" class="button profile__button">Sign Up</a>
+                <div class="menuFull">
+                    <img src="img/logo.png" alt="logo" class="logo">
+                    <ul class="menuFull__list">
+                        <li class="menuFull__item">
+                            <a href="" class="menuFull__link menuFull__link_selected">Home</a>
+                        </li>
+                        <li class="menuFull__item">
+                            <a href="" class="menuFull__link">About Us</a>
+                        </li>
+                        <li class="menuFull__item">
+                            <a href="" class="menuFull__link">Our App</a>
+                        </li>
+                        <li class="menuFull__item">
+                            <a href="" class="menuFull__link">Contacts</a>
+                        </li>
+                    </ul>
+                    <div class="profile">
+                        <a href="" class="profile__link">Log in</a>
+                        <a href="" class="button profile__button">Sign Up</a>
+                    </div>
                 </div>
+                <div class="menuBurger">
+                    <div class="menuBurger__container">
+                        <div class="burger">
+                            <div class="bar topBar"></div>
+                            <div class="bar btmBar"></div>
+                        </div>
+                    </div>
+                    <ul class="menuBurger__list">
+                        <li class="menuBurger__item"><a href="#" class="menuBurger__link">Home</a></li>
+                        <li class="menuBurger__item"><a href="#" class="menuBurger__link">About Us</a></li>
+                        <li class="menuBurger__item"><a href="#" class="menuBurger__link">Our App</a></li>
+                        <li class="menuBurger__item"><a href="#" class="menuBurger__link">Contacts</a></li>
+                    </ul>
+                    <img src="img/logo.png" alt="" class="menuBurger__logo">
+                    <div class="menuBurger__profile">
+                        <a href="" class="menuBurger__login profile__link">Log in</a>
+                        <a href="" class="menuBurger__button button profile__button">Sign Up</a>
+                    </div>
+                </div>
+                
             </nav>
+
         </div>
     </header>
     <main>
+
         <div class="container">
             <article class="boost">
                 <section class="boost__info">
@@ -221,9 +245,15 @@
             </article>
         </div>
     </main>
-    <footer>
+    <footer class="footer">
         <div class="container">
+            <div class="footer">
+                <div class="footer__info">
+                    <img src="img/logo.png" alt="footer__logo" class="footer__logo">
+                    <div class="footer__text">© 2022 Epixelab. All rights reserved.</div>
 
+                </div>
+            </div>
         </div>
     </footer>
     <script src="js/main.js"></script>
