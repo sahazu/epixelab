@@ -280,7 +280,7 @@ input {
 }
 
 .menuBurger__open {
-  height: 100%;
+  height: calc(100vh + 80px);
   background-color: #e2ccbe;
   opacity: 0.95;
   -webkit-transition: all 0.3s ease-in, background 0.5s ease-in;
@@ -355,13 +355,14 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 630px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .title {
   margin-top: 66px;
   max-width: 500px;
-  min-height: 260px;
   font-weight: 850;
   font-size: 70px;
   line-height: 81px;
@@ -369,7 +370,7 @@ input {
 }
 
 .text {
-  margin-top: 16px;
+  margin-top: 36px;
   max-width: 555px;
   font-weight: 500;
   font-size: 22px;
@@ -482,8 +483,8 @@ input {
 
 .boost__man {
   position: relative;
-  top: 30px;
-  left: 90px;
+  height: 634px;
+  min-width: 707px;
 }
 
 .service {
@@ -1056,15 +1057,68 @@ input {
     display: -ms-flexbox;
     display: flex;
   }
-  .title {
-    margin-top: 24.5;
-  }
   .profile {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
   }
   .boost {
-    margin-top: 50px;
+    margin-top: 140px !important;
+  }
+}
+@media (max-width: 1232px) {
+  .title {
+    font-size: 60px;
+    line-height: 74px;
+  }
+  .boost__man {
+    height: 544px;
+    min-width: 641px;
+  }
+  .boost__man .comments,
+.boost__man .items,
+.boost__man .image {
+    -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+}
+@media (max-width: 1111px) {
+  .boost {
+    margin-top: 32px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .boost__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .title {
+    margin-top: 0px !important;
+    text-align: center;
+    margin-top: 66px;
+    max-width: 969px;
+    font-weight: 850;
+    font-size: 70px;
+    line-height: 81px;
+  }
+  .boost__man {
+    display: none;
   }
 }
