@@ -123,8 +123,8 @@ input {
 }
 
 .menuBurger {
-  position: absolute;
   display: none;
+  position: absolute;
   top: 0;
   left: 0;
   height: 60px;
@@ -161,59 +161,9 @@ input {
   -webkit-tap-highlight-color: transparent;
   margin-left: 15px;
   margin-top: 21px;
+  z-index: 5;
 }
-.menuBurger .menuBurger__list {
-  position: relative;
-  display: none;
-  padding: 0px 48px 0;
-  list-style: none;
-}
-.menuBurger .menuBurger__item {
-  border-bottom: 1.5px solid rgb(255, 255, 255);
-  margin-top: 5px;
-  -webkit-transform: scale(1.15) translateY(-30px);
-      -ms-transform: scale(1.15) translateY(-30px);
-          transform: scale(1.15) translateY(-30px);
-  display: none;
-  -webkit-transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  -o-transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-}
-.menuBurger .menuBurger__item:nth-child(1) {
-  -webkit-transition-delay: 0.49s;
-       -o-transition-delay: 0.49s;
-          transition-delay: 0.49s;
-}
-.menuBurger .menuBurger__item:nth-child(2) {
-  -webkit-transition-delay: 0.42s;
-       -o-transition-delay: 0.42s;
-          transition-delay: 0.42s;
-}
-.menuBurger .menuBurger__item:nth-child(3) {
-  -webkit-transition-delay: 0.35s;
-       -o-transition-delay: 0.35s;
-          transition-delay: 0.35s;
-}
-.menuBurger .menuBurger__item:nth-child(4) {
-  -webkit-transition-delay: 0.28s;
-       -o-transition-delay: 0.28s;
-          transition-delay: 0.28s;
-}
-.menuBurger .menuBurger__link {
-  display: block;
-  position: relative;
-  color: rgb(255, 255, 255);
-  font-family: "DM Sans";
-  font-weight: 400;
-  text-decoration: none;
-  font-size: 22px;
-  line-height: 2.35;
-  font-weight: 200;
-  width: 100%;
-}
-.burger {
+.menuBurger .menuBurger__container .burger {
   width: 18px;
   height: 8px;
   position: relative;
@@ -227,8 +177,7 @@ input {
   -o-transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
 }
-
-.bar {
+.menuBurger .menuBurger__container .bar {
   width: 100%;
   height: 1px;
   display: block;
@@ -241,63 +190,96 @@ input {
        -o-transition-delay: 0s;
           transition-delay: 0s;
 }
-.bar.topBar {
+.menuBurger .menuBurger__container .bar.topBar {
   -webkit-transform: translateY(0px) rotate(0deg);
       -ms-transform: translateY(0px) rotate(0deg);
           transform: translateY(0px) rotate(0deg);
 }
-.bar.btmBar {
+.menuBurger .menuBurger__container .bar.btmBar {
   -webkit-transform: translateY(6px) rotate(0deg);
       -ms-transform: translateY(6px) rotate(0deg);
           transform: translateY(6px) rotate(0deg);
 }
-
-.menuBurger__logo {
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  display: none;
-  padding: 18px;
+.menuBurger .icon {
+  display: inline-block;
   position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 3;
+  height: 100%;
+  line-height: 50px;
+  width: 120px;
   height: 60px;
-  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  right: 15px;
+  -webkit-transition: 1.2s ease-in;
+  -o-transition: 1.2s ease-in;
+  transition: 1.2s ease-in;
+  -webkit-transition-delay: 0.2s;
+       -o-transition-delay: 0.2s;
+          transition-delay: 0.2s;
 }
-
-.menuBurger__profile {
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-  display: none;
-  height: 60px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.menuBurger .menuBurger__list {
+  position: relative;
+  display: block;
+  padding: 0px 48px 0;
+  list-style: none;
 }
-
-.menuBurger__login {
-  font-size: 12px;
-  margin-right: 10px;
+.menuBurger .menuBurger__list .menuBurger__item {
+  border-bottom: 1.5px solid rgb(255, 255, 255);
+  margin-top: 5px;
+  -webkit-transform: scale(1.15) translateY(-30px);
+      -ms-transform: scale(1.15) translateY(-30px);
+          transform: scale(1.15) translateY(-30px);
+  opacity: 0;
+  -webkit-transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  transition: opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  -o-transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
 }
-
-.menuBurger__button {
-  font-size: 12px;
-  padding: 6px 15px;
-  margin-right: 15px;
+.menuBurger .menuBurger__list .menuBurger__item:nth-child(1) {
+  -webkit-transition-delay: 0.49s;
+       -o-transition-delay: 0.49s;
+          transition-delay: 0.49s;
 }
-
-.fa-right-to-bracket {
-  font-size: 30px;
-  color: #ff6600;
-  display: none;
+.menuBurger .menuBurger__list .menuBurger__item:nth-child(2) {
+  -webkit-transition-delay: 0.42s;
+       -o-transition-delay: 0.42s;
+          transition-delay: 0.42s;
 }
-
-.menuBurger__open {
+.menuBurger .menuBurger__list .menuBurger__item:nth-child(3) {
+  -webkit-transition-delay: 0.35s;
+       -o-transition-delay: 0.35s;
+          transition-delay: 0.35s;
+}
+.menuBurger .menuBurger__list .menuBurger__item:nth-child(4) {
+  -webkit-transition-delay: 0.28s;
+       -o-transition-delay: 0.28s;
+          transition-delay: 0.28s;
+}
+.menuBurger .menuBurger__list .menuBurger__item:nth-child(5) {
+  -webkit-transition-delay: 0.21s;
+       -o-transition-delay: 0.21s;
+          transition-delay: 0.21s;
+}
+.menuBurger .menuBurger__list .menuBurger__item:nth-child(6) {
+  -webkit-transition-delay: 0.14s;
+       -o-transition-delay: 0.14s;
+          transition-delay: 0.14s;
+}
+.menuBurger .menuBurger__list .menuBurger__item .menuBurger__link {
+  display: block;
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-family: "DM Sans";
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 2.35;
+  font-weight: 200;
+  width: 100%;
+}
+.menuBurger.menuBurger__open {
   height: calc(100vh + 60px);
   background-color: rgba(11, 27, 53, 0.4862745098);
   -webkit-backdrop-filter: blur(20px);
@@ -305,20 +287,19 @@ input {
   -webkit-transition: all 0.3s ease-in, background 0.5s ease-in;
   -o-transition: all 0.3s ease-in, background 0.5s ease-in;
   transition: all 0.3s ease-in, background 0.5s ease-in;
-  display: block !important;
 }
-.menuBurger__open .menuBurger__profile {
-  opacity: 0;
-}
-.menuBurger__open .menuBurger__logo {
-  opacity: 0;
-}
-.menuBurger__open .menuBurger__container .burger {
+.menuBurger.menuBurger__open .menuBurger__container {
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
-.menuBurger__open .bar {
+.menuBurger.menuBurger__open .icon {
+  opacity: 0;
+  -webkit-transition: 0.5s ease-in;
+  -o-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+.menuBurger.menuBurger__open .bar {
   background: #ffffff;
   -webkit-transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   -o-transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
@@ -327,49 +308,55 @@ input {
        -o-transition-delay: 0.2s;
           transition-delay: 0.2s;
 }
-.menuBurger__open .bar.topBar {
+.menuBurger.menuBurger__open .bar.topBar {
   -webkit-transform: translateY(4px) rotate(45deg);
       -ms-transform: translateY(4px) rotate(45deg);
           transform: translateY(4px) rotate(45deg);
 }
-.menuBurger__open .bar.btmBar {
+.menuBurger.menuBurger__open .bar.btmBar {
   -webkit-transform: translateY(3px) rotate(-45deg);
       -ms-transform: translateY(3px) rotate(-45deg);
           transform: translateY(3px) rotate(-45deg);
 }
-.menuBurger__open .menuBurger__list {
-  display: block;
-}
-.menuBurger__open .menuBurger__list .menuBurger__item {
+.menuBurger.menuBurger__open .menuBurger__list .menuBurger__item {
   -webkit-transform: scale(1) translateY(0px);
       -ms-transform: scale(1) translateY(0px);
           transform: scale(1) translateY(0px);
-  display: block;
+  opacity: 1;
 }
-.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(1) {
+.menuBurger.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(1) {
   -webkit-transition-delay: 0.27s;
        -o-transition-delay: 0.27s;
           transition-delay: 0.27s;
 }
-.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(2) {
+.menuBurger.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(2) {
   -webkit-transition-delay: 0.34s;
        -o-transition-delay: 0.34s;
           transition-delay: 0.34s;
 }
-.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(3) {
+.menuBurger.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(3) {
   -webkit-transition-delay: 0.41s;
        -o-transition-delay: 0.41s;
           transition-delay: 0.41s;
 }
-.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(4) {
+.menuBurger.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(4) {
   -webkit-transition-delay: 0.48s;
        -o-transition-delay: 0.48s;
           transition-delay: 0.48s;
 }
-.menuBurger__open .menuBurger__list .menuBurger__item-logIn {
-  display: none;
+.menuBurger.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(5) {
+  -webkit-transition-delay: 0.55s;
+       -o-transition-delay: 0.55s;
+          transition-delay: 0.55s;
 }
-.menuBurger__open .menuBurger__list .menuBurger__item-signUp {
+.menuBurger.menuBurger__open .menuBurger__list .menuBurger__item:nth-child(6) {
+  -webkit-transition-delay: 0.62s;
+       -o-transition-delay: 0.62s;
+          transition-delay: 0.62s;
+}
+.fa-right-to-bracket {
+  font-size: 30px;
+  color: #ff6600;
   display: none;
 }
 
@@ -1078,9 +1065,7 @@ input {
     line-height: 35px;
   }
   .menuBurger {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
   }
   .menuBurger__logo {
     display: inline-block;

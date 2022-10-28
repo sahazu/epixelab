@@ -1,5 +1,7 @@
 $cubic: cubic-bezier(0.4, 0.01, 0.165, 0.99);
-$menuItems: 4;
+$menuItems: 6;
+
+
 * {
     margin: 0;
     padding: 0;
@@ -94,8 +96,8 @@ nav {
     }
 }
 .menuBurger {
-    position: absolute;
     display: none;
+    position: absolute;
     top: 0;
     left: 0;
     height: 60px;
@@ -118,145 +120,128 @@ nav {
         -webkit-tap-highlight-color: transparent;
         margin-left: 15px;
         margin-top: 21px;
-    }
-    .menuBurger__list {
-        position: relative;
-        display: none;
-        padding: 0px 48px 0;
-        list-style: none;
-    }
-    .menuBurger__item {
-        border-bottom: 1.5px solid rgb(255, 255, 255);
-        margin-top: 5px;
-        transform: scale(1.15) translateY(-30px);
-        display: none;
-        transition: transform 0.5s $cubic, opacity 0.6s $cubic;
-        @for $i from 1 through $menuItems {
-            &:nth-child(#{$i}) {
-                transition-delay: #{0.56 - ($i * 0.07)}s;
+        z-index: 5;
+        .burger {
+            width: 18px;
+            height: 8px;
+            position: relative;
+            display: block;
+            margin: -4px auto 0;
+            top: 50%;
+            transform: rotate(0deg);
+            transition: all 0.3s $cubic;
+        }
+
+        .bar {
+            width: 100%;
+            height: 1px;
+            display: block;
+            position: relative;
+            background: #0b1b35;
+            transition: all 0.3s $cubic;
+            transition-delay: 0s;
+            &.topBar {
+                transform: translateY(0px) rotate(0deg);
+            }
+            &.btmBar {
+                transform: translateY(6px) rotate(0deg);
             }
         }
     }
-    .menuBurger__link {
-        display: block;
-        position: relative;
-        color: rgb(255, 255, 255);
-        font-family: "DM Sans";
-        font-weight: 400;
-        text-decoration: none;
+    .icon {
+        display: inline-block;
+        position: absolute;
+        height: 100%;
+        line-height: 50px;
+        width: 120px;
+        height: 60px;
+        text-align: center;
+        color: #fff;
         font-size: 22px;
-        line-height: 2.35;
-        font-weight: 200;
-        width: 100%;
-        &:hover {
+        right: 15px;
+        transition: 1.2s ease-in;
+        transition-delay: 0.2s;
+    }
+    .menuBurger__list {
+        position: relative;
+        display: block;
+        padding: 0px 48px 0;
+        list-style: none;
+        .menuBurger__item {
+             border-bottom: 1.5px solid rgb(255, 255, 255);
+            margin-top: 5px;
+            transform: scale(1.15) translateY(-30px);
+            opacity: 0;
+            transition: transform 0.5s $cubic, opacity 0.6s $cubic;
+            @for $i from 1 through $menuItems {
+                &:nth-child(#{$i}) {
+                    transition-delay: #{0.56 - ($i * 0.07)}s;
+                }
+            } 
+            .menuBurger__link {
+                display: block;
+                position: relative;
+                color: rgb(255, 255, 255);
+                font-family: "DM Sans";
+                font-weight: 400;
+                text-decoration: none;
+                font-size: 22px;
+                line-height: 2.35;
+                font-weight: 200;
+                width: 100%;
+                &:hover {
+                }
+            }
+        }
+    }
+    &.menuBurger__open {
+        height: calc(100vh + 60px);
+        background-color: #0b1b357c;
+        backdrop-filter: blur(20px);
+        transition: all 0.3s ease-in, background 0.5s ease-in;
+        .menuBurger__container {
+            transform: rotate(90deg);
+        }
+        .icon {
+            opacity: 0;
+            transition: 0.5s ease-in
+            
+        }
+        .bar {
+            background: #ffffff;
+            transition: all 0.4s $cubic;
+            transition-delay: 0.2s;
+            &.topBar {
+                transform: translateY(4px) rotate(45deg);
+            }
+            &.btmBar {
+                transform: translateY(3px) rotate(-45deg);
+            }
+        }
+        .menuBurger__list {
+            .menuBurger__item {
+                transform: scale(1) translateY(0px);
+                opacity: 1;
+                @for $i from 1 through $menuItems {
+                    &:nth-child(#{$i}) {
+                        transition-delay: #{0.07 * $i + 0.2}s;
+                    }
+                }
+            }
+        }
+        .icon {
+            // &.icon-bag {
+            //     transform: translateX(75px);
+            //     transition-delay: 0.3s;
+            // }
         }
     }
 }
 
-.burger {
-    width: 18px;
-    height: 8px;
-    position: relative;
-    display: block;
-    margin: -4px auto 0;
-    top: 50%;
-    transform: rotate(0deg);
-    transition: all 0.3s $cubic;
-}
-
-.bar {
-    width: 100%;
-    height: 1px;
-    display: block;
-    position: relative;
-    background: #0b1b35;
-    transition: all 0.3s $cubic;
-    transition-delay: 0s;
-    &.topBar {
-        transform: translateY(0px) rotate(0deg);
-    }
-    &.btmBar {
-        transform: translateY(6px) rotate(0deg);
-    }
-}
-.menuBurger__logo {
-    transition: 0.5s;
-    display: none;
-    padding: 18px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    height: 60px;
-    margin: 0 auto;
-}
-.menuBurger__profile {
-    transition: 0.5s;
-    display: none;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-}
-.menuBurger__login {
-    font-size: 12px;
-    margin-right: 10px;
-}
-.menuBurger__button {
-    font-size: 12px;
-    padding: 6px 15px;
-    margin-right: 15px;
-}
 .fa-right-to-bracket {
     font-size: 30px;
     color: #ff6600;
     display: none;
-}
-.menuBurger__open {
-    height: calc(100vh + 60px);
-    background-color: #0b1b357c;
-    backdrop-filter: blur(20px);
-    transition: all 0.3s ease-in, background 0.5s ease-in;
-    display: block !important;
-    .menuBurger__profile {
-        opacity: 0;
-    }
-    .menuBurger__logo {
-        opacity: 0;
-    }
-    .menuBurger__container {
-        .burger {
-            transform: rotate(90deg);
-        }
-    }
-    .bar {
-        background: #ffffff;
-        transition: all 0.4s $cubic;
-        transition-delay: 0.2s;
-        &.topBar {
-            transform: translateY(4px) rotate(45deg);
-        }
-        &.btmBar {
-            transform: translateY(3px) rotate(-45deg);
-        }
-    }
-    .menuBurger__list {
-        display: block;
-        .menuBurger__item {
-            transform: scale(1) translateY(0px);
-            display: block;
-            @for $i from 1 through $menuItems {
-                &:nth-child(#{$i}) {
-                    transition-delay: #{0.07 * $i + 0.2}s;
-                }
-            }
-            &-logIn {
-                display: none;
-            }
-            &-signUp {
-                display: none;
-            }
-        }
-    }
 }
 .boost {
     display: flex;
@@ -772,7 +757,7 @@ nav {
         line-height: 35px;
     }
     .menuBurger {
-        display: flex;
+        display: block;
     }
     .menuBurger__logo {
         display: inline-block;
