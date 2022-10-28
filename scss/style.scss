@@ -12,6 +12,9 @@ $menuItems: 4;
 .notScroll {
     overflow: hidden;
 }
+.inactive {
+    display: none !important;
+}
 input {
     all: unset;
 }
@@ -95,7 +98,7 @@ nav {
     display: none;
     top: 0;
     left: 0;
-    height: 80px;
+    height: 60px;
     width: 100%;
     background: #ffffff;
     overflow: hidden;
@@ -106,13 +109,15 @@ nav {
     .menuBurger__container {
         position: relative;
         display: inline-block;
-        height: 80px;
-        width: 80px;
+        height: 18px;
+        width: 18px;
         cursor: pointer;
         transform: rotate(0deg);
         transition: all 0.3s $cubic;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
+        margin-left: 15px;
+        margin-top: 21px;
     }
     .menuBurger__list {
         position: relative;
@@ -155,6 +160,8 @@ nav {
     display: block;
     margin: -4px auto 0;
     top: 50%;
+    transform: rotate(0deg);
+    transition: all 0.3s $cubic;
 }
 
 .bar {
@@ -175,18 +182,18 @@ nav {
 .menuBurger__logo {
     transition: 0.5s;
     display: none;
-    padding: 25px;
+    padding: 18px;
     position: absolute;
     left: 0;
     right: 0;
     z-index: 3;
-    height: 80px;
+    height: 60px;
     margin: 0 auto;
 }
 .menuBurger__profile {
     transition: 0.5s;
     display: none;
-    height: 80px;
+    height: 60px;
     align-items: center;
     justify-content: center;
 }
@@ -199,12 +206,16 @@ nav {
     padding: 6px 15px;
     margin-right: 15px;
 }
+.fa-right-to-bracket {
+    font-size: 30px;
+    color: #ff6600;
+    display: none;
+}
 .menuBurger__open {
-    height: calc(100vh + 80px);
-    background-color: #e2ccbe;
-    opacity: 0.95;
+    height: calc(100vh + 60px);
+    background-color: #0b1b357c;
+    backdrop-filter: blur(20px);
     transition: all 0.3s ease-in, background 0.5s ease-in;
-    transition-delay: 0.25s;
     display: block !important;
     .menuBurger__profile {
         opacity: 0;
@@ -213,7 +224,9 @@ nav {
         opacity: 0;
     }
     .menuBurger__container {
-        transform: rotate(90deg);
+        .burger {
+            transform: rotate(90deg);
+        }
     }
     .bar {
         background: #ffffff;
@@ -235,6 +248,12 @@ nav {
                 &:nth-child(#{$i}) {
                     transition-delay: #{0.07 * $i + 0.2}s;
                 }
+            }
+            &-logIn {
+                display: none;
+            }
+            &-signUp {
+                display: none;
             }
         }
     }
@@ -365,7 +384,7 @@ nav {
     font-style: normal;
     font-weight: 700;
     font-size: 52px;
-    line-height: 28px;
+    line-height: 52px;
     text-align: center;
     color: #0b1b35;
     margin-top: 19px;
@@ -403,8 +422,8 @@ nav {
     margin-top: 41px;
     font-weight: 700;
     font-size: 36px;
-    line-height: 28px;
     text-align: center;
+    line-height: 37px;
 }
 .skill__title2 {
     margin-top: 50.3px;
@@ -425,7 +444,6 @@ nav {
 .many {
     display: flex;
     width: 100%;
-    height: 386px;
     margin-top: 180px;
     justify-content: space-between;
 }
@@ -522,7 +540,7 @@ nav {
     font-style: normal;
     font-weight: 700;
     font-size: 52px;
-    line-height: 28px;
+    line-height: 52px;
     text-align: center;
     color: #0b1b35;
     margin-top: 19px;
@@ -541,7 +559,6 @@ nav {
     box-sizing: content-box;
     padding: 36px 28px 23px 35px;
     display: flex;
-    height: 179px;
 }
 .client__img {
     width: 70px;
@@ -553,6 +570,7 @@ nav {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    min-height: 179px;
 }
 .client__text {
     font-family: "DM Sans";
@@ -588,7 +606,7 @@ nav {
     font-style: normal;
     font-weight: 700;
     font-size: 52px;
-    line-height: 28px;
+    line-height: 52px;
     text-align: center;
     color: #0b1b35;
     margin-top: 19px;
@@ -675,7 +693,7 @@ nav {
     font-style: normal;
     font-weight: 700;
     font-size: 52px;
-    line-height: 28px;
+    line-height: 52px;
     text-align: center;
     color: #0b1b35;
     margin-top: 19px;
@@ -692,8 +710,8 @@ nav {
 .email__info {
 }
 .email__text {
-    width: 684px;
-    height: 78px;
+    max-width: 684px;
+    width: 100%;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -701,6 +719,9 @@ nav {
 }
 .email__form {
     margin-top: 23px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 .email__input {
     &::placeholder {
@@ -713,7 +734,8 @@ nav {
     border: 1px solid #dddddd;
     max-width: 633px;
     width: 100%;
-    padding: 24px 0 24px 67px;
+    padding: 24px 0;
+    text-indent: 67px;
     box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198),
         0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035),
         0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
@@ -724,7 +746,8 @@ nav {
 }
 .email__button {
     border: 0px;
-    padding: 10px 249px;
+    padding: 10px 0;
+    width: 100%;
     margin-top: 51px;
     &:hover {
         cursor: pointer;
@@ -732,7 +755,7 @@ nav {
 }
 .footer {
     margin-top: 167px;
-    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
 .footer__info {
     display: flex;
@@ -766,6 +789,20 @@ nav {
         margin-top: 140px !important;
     }
 }
+@media (max-width: 454px) {
+    .menuBurger__profile {
+        display: none;
+    }
+    .menuBurger__open .menuBurger__item-logIn,
+    .menuBurger__item-signUp {
+        display: block !important;
+    }
+    .menuBurger__logo {
+        position: static !important;
+        margin: 0;
+        margin-right: -10px;
+    }
+}
 @media (max-width: 1232px) {
     .title {
         font-size: 60px;
@@ -778,6 +815,35 @@ nav {
         .items,
         .image {
             transform: scale(0.9);
+        }
+    }
+}
+@media (max-width: 405px) {
+    .title {
+        font-size: 47px !important;
+        line-height: 56px !important;
+    }
+    .text {
+        font-size: 18px;
+        line-height: 25px;
+        margin-top: 25px;
+    }
+    .boost {
+        margin-top: 109px !important;
+        &__button {
+            font-size: 14px;
+            padding: 6px 18px;
+            margin-right: 16px;
+        }
+        &__ic {
+            width: 35px;
+            margin-right: 10px;
+        }
+        &__link {
+            font-size: 14px;
+        }
+        &__activities {
+            margin-top: 25px;
         }
     }
 }
@@ -797,12 +863,156 @@ nav {
         margin-top: 0px !important;
         text-align: center;
         margin-top: 66px;
-        max-width: 969px;;
+        max-width: 969px;
         font-weight: 850;
         font-size: 70px;
         line-height: 81px;
     }
     .boost__man {
         display: none;
+    }
+    .text {
+        text-align: center;
+    }
+    .service__wrapper {
+        flex-flow: column;
+    }
+    .skill {
+        margin-top: 110px;
+        width: 100%;
+        height: auto;
+        background: #ffffff;
+        box-shadow: none;
+        border-radius: 28px;
+        padding-left: 0px;
+        &__text {
+            margin-top: 50px;
+            font-size: 20px;
+            max-width: 80%;
+        }
+        &__logo1,
+        &__logo2,
+        &__logo3 {
+            margin-top: 0;
+        }
+        &__button {
+            margin-top: 50px;
+            padding: 12px 65px;
+            border-radius: 15px;
+        }
+    }
+}
+
+@media (max-width: 285px) {
+    .boost {
+        &__button {
+            font-size: 12px !important;
+            padding: 5px 16px !important;
+            margin-right: 12px !important;
+        }
+        &__ic {
+            width: 30px !important;
+            margin-right: 8px !important;
+        }
+        &__link {
+            font-size: 12px !important;
+        }
+    }
+    .skill {
+        &__text {
+            max-width: 100%;
+            font-size: 18px;
+        }
+        &__button {
+            font-size: 14px;
+            padding: 8px 32px;
+            border-radius: 10px;
+            margin-top: 35px;
+        }
+    }
+}
+@media (max-width: 1057px) {
+    .many {
+        flex-flow: column;
+        align-items: center;
+        &__info {
+            align-items: center;
+            text-align: center;
+        }
+        &__title {
+            font-size: 40px;
+            max-width: 700px;
+            line-height: 45px;
+        }
+        &__text {
+            margin-top: 40px;
+        }
+        &__button {
+            margin: 40px 0;
+        }
+        &__video {
+            display: none;
+        }
+    }
+}
+@media (max-width: 388px) {
+    .client {
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+        &__img {
+            margin: 0 0 30px 0;
+        }
+        &__info {
+            height: auto;
+            min-height: 0px;
+        }
+        &__text {
+            margin-bottom: 30px;
+        }
+    }
+}
+@media (max-width: 792px) {
+    .team {
+        &__wrapper {
+            flex-flow: column;
+            align-items: center;
+        }
+    }
+    .member {
+        max-width: 370px;
+        width: 100%;
+    }
+}
+@media (max-width: 1160px) {
+    .email__img {
+        display: none;
+    }
+    .email__text {
+        text-align: center;
+    }
+    .email {
+        margin-top: 70px;
+    }
+    .email__form {
+        margin-top: 40px;
+        
+    }
+    .email__input {
+        text-indent: 40px;
+    }
+}
+
+@media (max-width: 560px) {
+    .footer__info {
+        gap: 15px;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 30px 0;
+    }
+    .footer {
+        padding-bottom: 0;
     }
 }
